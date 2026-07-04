@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c51e8cee1b03e24998caf21292f04f9, type: 3}
+  m_Name: Bolinha_Gigante
+  m_EditorClassIdentifier: Assembly-CSharp::BolinhaData
+  nome: gigante
+  prefab: {fileID: 3308533897429330426, guid: 5733090a908f6ea4b8834e81494e12d7, type: 3}
+  sprite: {fileID: 21300000, guid: a25a48f179e89e44bb38792d39f8ac83, type: 3}
+  material: {fileID: 2100000, guid: 34abd02f65e19df4ea95ebf6bbd630be, type: 2}
+  tamanho: 1.4
+  velocidade: 3
+  forcaEmpurrao: 10

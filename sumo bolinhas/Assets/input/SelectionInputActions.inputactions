@@ -1,0 +1,135 @@
+{
+    "version": 1,
+    "name": "SelectionInputActions",
+    "maps": [
+        {
+            "name": "Selection",
+            "id": "79d9a56a-9655-4220-af8b-cebce4dc8dd4",
+            "actions": [
+                {
+                    "name": "P1Previous",
+                    "type": "Button",
+                    "id": "bb666a4c-e9e9-4dca-a3fc-6efef773cbb7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P1Next",
+                    "type": "Button",
+                    "id": "27dad057-7e90-4957-9089-fd04f9a85f47",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P1Confirm",
+                    "type": "Button",
+                    "id": "a435df11-a1fd-49f1-a56d-dcbadcae085d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P2Previous",
+                    "type": "Button",
+                    "id": "a2cc6404-10fd-4c89-871c-ac1b757397e0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P2Next",
+                    "type": "Button",
+                    "id": "b88bd149-9eeb-4a04-8bf4-6aecff542a57",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P2Confirm",
+                    "type": "Button",
+                    "id": "98d9bf37-3b30-455c-9d5c-7b046f26bc34",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c166446e-c0f7-4282-a749-0aab931544ac",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P1Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "588a8997-781f-4118-b312-1fc140784b69",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P1Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4caa5c51-de69-41a8-895f-dee2487cd0d3",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P1Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df977ad3-e0e2-40d2-99ae-3c305b84d934",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P2Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "458ab8ab-db30-4c3d-8f75-d9eb17047257",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P2Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ca8fd7d-e3b1-421e-9f12-746640511a49",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P2Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
