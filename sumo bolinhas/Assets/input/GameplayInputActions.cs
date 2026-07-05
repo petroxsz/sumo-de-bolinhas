@@ -109,6 +109,24 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""P1Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""62879981-70d3-4c47-9171-75934f84feda"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P2Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a777e9fb-d558-4173-bf23-83242a93d9d6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -221,6 +239,28 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""P1Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""275932c4-e9a0-4e8b-a88c-537f693a1498"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""P1Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50cd0eb4-4027-480f-8707-dee32ac4a4c5"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""P2Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -231,6 +271,8 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_P1Move = m_Gameplay.FindAction("P1Move", throwIfNotFound: true);
         m_Gameplay_P2Move = m_Gameplay.FindAction("P2Move", throwIfNotFound: true);
+        m_Gameplay_P1Attack = m_Gameplay.FindAction("P1Attack", throwIfNotFound: true);
+        m_Gameplay_P2Attack = m_Gameplay.FindAction("P2Attack", throwIfNotFound: true);
     }
 
     ~@GameplayInputActions()
@@ -313,6 +355,8 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_P1Move;
     private readonly InputAction m_Gameplay_P2Move;
+    private readonly InputAction m_Gameplay_P1Attack;
+    private readonly InputAction m_Gameplay_P2Attack;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -332,6 +376,14 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/P2Move".
         /// </summary>
         public InputAction @P2Move => m_Wrapper.m_Gameplay_P2Move;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/P1Attack".
+        /// </summary>
+        public InputAction @P1Attack => m_Wrapper.m_Gameplay_P1Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/P2Attack".
+        /// </summary>
+        public InputAction @P2Attack => m_Wrapper.m_Gameplay_P2Attack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -364,6 +416,12 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
             @P2Move.started += instance.OnP2Move;
             @P2Move.performed += instance.OnP2Move;
             @P2Move.canceled += instance.OnP2Move;
+            @P1Attack.started += instance.OnP1Attack;
+            @P1Attack.performed += instance.OnP1Attack;
+            @P1Attack.canceled += instance.OnP1Attack;
+            @P2Attack.started += instance.OnP2Attack;
+            @P2Attack.performed += instance.OnP2Attack;
+            @P2Attack.canceled += instance.OnP2Attack;
         }
 
         /// <summary>
@@ -381,6 +439,12 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
             @P2Move.started -= instance.OnP2Move;
             @P2Move.performed -= instance.OnP2Move;
             @P2Move.canceled -= instance.OnP2Move;
+            @P1Attack.started -= instance.OnP1Attack;
+            @P1Attack.performed -= instance.OnP1Attack;
+            @P1Attack.canceled -= instance.OnP1Attack;
+            @P2Attack.started -= instance.OnP2Attack;
+            @P2Attack.performed -= instance.OnP2Attack;
+            @P2Attack.canceled -= instance.OnP2Attack;
         }
 
         /// <summary>
@@ -435,5 +499,19 @@ public partial class @GameplayInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Move(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P1Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP1Attack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P2Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP2Attack(InputAction.CallbackContext context);
     }
 }
