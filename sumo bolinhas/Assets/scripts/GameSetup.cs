@@ -43,5 +43,12 @@ public class GameSetup : MonoBehaviour
         // Cada bolinha conhece seu inimigo
         p1Controller.SetEnemy(p2);
         p2Controller.SetEnemy(p1);
+
+        CooldownUI ui = FindFirstObjectByType<CooldownUI>();
+
+ui.player1 = p1Controller;
+ui.player2 = p2Controller;
+
+MatchManager.Instance.SetPlayers(p1Controller, p2Controller);
     }
 }
