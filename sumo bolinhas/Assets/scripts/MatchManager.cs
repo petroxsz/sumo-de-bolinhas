@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour
 {
     public static MatchManager Instance;
+
+    // Observer
+    public static event Action<int, int> OnRoundsUpdated;
 
     public BolinhaController player1;
     public BolinhaController player2;
@@ -21,8 +25,7 @@ public class MatchManager : MonoBehaviour
 
     private void Start()
     {
-        if (RoundUIManager.Instance != null)
-            RoundUIManager.Instance.UpdateRounds(p1Rounds, p2Rounds);
+        OnRoundsUpdated?.Invoke(p1Rounds, p2Rounds);
     }
 
     public void SetPlayers(BolinhaController p1, BolinhaController p2)
@@ -44,8 +47,8 @@ public class MatchManager : MonoBehaviour
             Debug.Log("Player 1 ganhou o round!");
         }
 
-        if (RoundUIManager.Instance != null)
-            RoundUIManager.Instance.UpdateRounds(p1Rounds, p2Rounds);
+        // Dispara o evento
+        OnRoundsUpdated?.Invoke(p1Rounds, p2Rounds);
 
         CheckMatchWinner();
 
@@ -65,13 +68,22 @@ public class MatchManager : MonoBehaviour
     }
 
     private void EndMatch(int winner)
+{
+    Debug.Log("JOGADOR " + winner + " VENCEU A PARTIDA!");
+
+    PlayerPrefs.SetInt("Winner", winner);
+
+    if (winner == 1)
     {
-        Debug.Log("JOGADOR " + winner + " VENCEU A PARTIDA!");
-
-        PlayerPrefs.SetInt("Winner", winner);
-
-        SceneManager.LoadScene("VictoryScene");
+        PlayerPrefs.SetString("WinnerBall", GameManager.Instance.player1.bolinhaEscolhida.nome);
     }
+    else
+    {
+        PlayerPrefs.SetString("WinnerBall", GameManager.Instance.player2.bolinhaEscolhida.nome);
+    }
+
+    SceneManager.LoadScene("VictoryScene");
+}
 
     private void Respawn()
     {

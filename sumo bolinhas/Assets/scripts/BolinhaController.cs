@@ -80,6 +80,7 @@ public class BolinhaController : MonoBehaviour
         Vector3 dir = new Vector3(moveInput.x, 0f, moveInput.y);
 
         rb.linearVelocity = dir * speed * speedMultiplier;
+        rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
     }
 
     private void Attack()
