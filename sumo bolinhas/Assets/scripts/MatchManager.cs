@@ -19,6 +19,12 @@ public class MatchManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        if (RoundUIManager.Instance != null)
+            RoundUIManager.Instance.UpdateRounds(p1Rounds, p2Rounds);
+    }
+
     public void SetPlayers(BolinhaController p1, BolinhaController p2)
     {
         player1 = p1;
@@ -38,7 +44,11 @@ public class MatchManager : MonoBehaviour
             Debug.Log("Player 1 ganhou o round!");
         }
 
+        if (RoundUIManager.Instance != null)
+            RoundUIManager.Instance.UpdateRounds(p1Rounds, p2Rounds);
+
         CheckMatchWinner();
+
         Respawn();
     }
 
@@ -72,6 +82,10 @@ public class MatchManager : MonoBehaviour
     private void ResetPlayer(BolinhaController player, Vector3 pos)
     {
         player.transform.position = pos;
-        player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
+        Rigidbody rb = player.GetComponent<Rigidbody>();
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }
