@@ -8,7 +8,8 @@ public class BolinhaData : ScriptableObject
     public GameObject prefab;
     public Sprite sprite;
 
-    public Material material; // 👈 NOVO
+    public Material material;          
+public Material materialAlternativo; 
 
     public float tamanho = 1f;
     public float velocidade = 5f;

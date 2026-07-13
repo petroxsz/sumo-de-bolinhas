@@ -16,6 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 3308533897429330426, guid: 5733090a908f6ea4b8834e81494e12d7, type: 3}
   sprite: {fileID: 21300000, guid: e15bd7192908e734e9739b4c24a207ee, type: 3}
   material: {fileID: 2100000, guid: f831ab142f05c8847a658fdde7f70d1a, type: 2}
+  materialAlternativo: {fileID: 2100000, guid: 70c85b78b77fc3d4e9aa07e56fcc2576, type: 2}
   tamanho: 1
   velocidade: 6
   forcaEmpurrao: 10

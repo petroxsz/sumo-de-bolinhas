@@ -6,7 +6,7 @@ public class MatchManager : MonoBehaviour
 {
     public static MatchManager Instance;
 
-    // Observer
+    // Observer ta aq
     public static event Action<int, int> OnRoundsUpdated;
 
     public BolinhaController player1;

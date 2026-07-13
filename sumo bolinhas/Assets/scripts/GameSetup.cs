@@ -12,6 +12,10 @@ public class GameSetup : MonoBehaviour
 
     private void SpawnPlayers()
     {
+        bool mesmaBolinha =
+            GameManager.Instance.player1.bolinhaEscolhida ==
+            GameManager.Instance.player2.bolinhaEscolhida;
+
         // PLAYER 1
         GameObject p1 = Instantiate(
             GameManager.Instance.player1.bolinhaEscolhida.prefab,
@@ -20,11 +24,11 @@ public class GameSetup : MonoBehaviour
         );
 
         var p1Renderer = p1.GetComponent<MeshRenderer>();
+
         p1Renderer.material = GameManager.Instance.player1.bolinhaEscolhida.material;
 
         BolinhaController p1Controller = p1.GetComponent<BolinhaController>();
         p1Controller.Setup(true);
-
 
         // PLAYER 2
         GameObject p2 = Instantiate(
@@ -34,21 +38,29 @@ public class GameSetup : MonoBehaviour
         );
 
         var p2Renderer = p2.GetComponent<MeshRenderer>();
-        p2Renderer.material = GameManager.Instance.player2.bolinhaEscolhida.material;
+
+        if (mesmaBolinha)
+        {
+            p2Renderer.material =
+                GameManager.Instance.player2.bolinhaEscolhida.materialAlternativo;
+        }
+        else
+        {
+            p2Renderer.material =
+                GameManager.Instance.player2.bolinhaEscolhida.material;
+        }
 
         BolinhaController p2Controller = p2.GetComponent<BolinhaController>();
         p2Controller.Setup(false);
 
-
-        // Cada bolinha conhece seu inimigo
         p1Controller.SetEnemy(p2);
         p2Controller.SetEnemy(p1);
 
         CooldownUI ui = FindFirstObjectByType<CooldownUI>();
 
-ui.player1 = p1Controller;
-ui.player2 = p2Controller;
+        ui.player1 = p1Controller;
+        ui.player2 = p2Controller;
 
-MatchManager.Instance.SetPlayers(p1Controller, p2Controller);
+        MatchManager.Instance.SetPlayers(p1Controller, p2Controller);
     }
 }

@@ -12,7 +12,7 @@ public class BolinhaController : MonoBehaviour
 
     private bool isPlayer1;
 
-    // Referência para o inimigo
+     
     private GameObject enemy;
 
     [Header("Ataque")]
@@ -79,8 +79,11 @@ public class BolinhaController : MonoBehaviour
     {
         Vector3 dir = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        rb.linearVelocity = dir * speed * speedMultiplier;
-        rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
+
+        rb.AddForce(dir * speed * speedMultiplier,ForceMode.Force);
+        float maxSpeed = speed * speedMultiplier;
+
+
     }
 
     private void Attack()
